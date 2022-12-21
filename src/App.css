@@ -1,0 +1,8 @@
+.App {
+  font-family: "DNFBitBitTTF";
+}
+
+@font-face {
+  font-family: "DNFBitBitTTF";
+  src: url(/src/assets/fonts/DNFBitBitTTF.ttf);
+}

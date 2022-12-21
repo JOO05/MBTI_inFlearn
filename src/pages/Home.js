@@ -4,8 +4,16 @@ import TitleImg from '../assets/musicalHome.jpg'
 // 이미지를 삽입하는 방법
 import Button from 'react-bootstrap/Button';
 //버튼을 사용하므로 별도로 Button styled.div 정의할 필요가 없음
+import { useNavigate } from "react-router-dom";
+//페이지 이동 기능을 구현
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClickButton = () => {
+    navigate('./question');
+  }
+
   return(
     <Wrapper>
       <Header>뮤지컬 MBTI 테스트</Header>
@@ -15,7 +23,9 @@ const Home = () => {
           <img src={TitleImg} className="rounded-circle" alt='alone' width={350} />
         </LogoImage>
         <Desc>MBTI 기반으로 하는 나랑 잘 맞는 뮤지컬 찾기!</Desc>
-        <Button>테스트 시작하기</Button>
+        <Button style={{fontFamily: "DNFBitBitTTF"}} onClick={handleClickButton}>
+          테스트 시작하기
+        </Button>
       </Contents>
     </Wrapper>
   )
@@ -33,6 +43,7 @@ const Header = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+  font-family: "DNFBitBitTTF";
 `
 
 const Contents = styled.div`
@@ -45,6 +56,7 @@ const Contents = styled.div`
 const Title = styled.div`
   font-size:30pt;
   margin-top:40px;
+  font-family: "DNFBitBitTTF";
 `
 
 const LogoImage = styled.div`
@@ -52,6 +64,7 @@ const LogoImage = styled.div`
 `
 
 const Desc = styled.div`
- font-size:20pt;
- margin-top:20px;
+  font-size:20pt;
+  margin-top:20px;
+  font-family: "DNFBitBitTTF";
 `

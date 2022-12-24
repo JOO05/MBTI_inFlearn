@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TitleImg from '../assets/musicalHome.jpg'
+import TitleImg from '../assets/Home.jpg'
 // 이미지를 삽입하는 방법
 import Button from 'react-bootstrap/Button';
 //버튼을 사용하므로 별도로 Button styled.div 정의할 필요가 없음
@@ -16,13 +16,13 @@ const Home = () => {
 
   return(
     <Wrapper>
-      <Header>뮤지컬 MBTI 테스트</Header>
+      <Header>심심할 때 해 보는 MBTI 테스트</Header>
         <Contents>
-        <Title>나에게 맞는 뮤지컬은?</Title>
+        <Title>나의 성격은?</Title>
         <LogoImage>
-          <img src={TitleImg} className="rounded-circle" alt='alone' width={350} />
+          <img src={TitleImg} alt='home' width={350} />
         </LogoImage>
-        <Desc>MBTI 기반으로 하는 나랑 잘 맞는 뮤지컬 찾기!</Desc>
+        <Desc>나의 MBTI 찾기!</Desc>
         <Button style={{fontFamily: "DNFBitBitTTF"}} onClick={handleClickButton}>
           테스트 시작하기
         </Button>

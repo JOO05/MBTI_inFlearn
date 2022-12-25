@@ -1,11 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ResultData } from "../assets/data/resultdata";
 
 const Result = () => {
   const navigate=useNavigate();
+  const [searchParams]=useSearchParams();
+  const mbti=searchParams.get('mbti');
+  const [resultData, setResultData]=React.useState({});
+
+  React.useEffect(()=>{
+    const result=ResultData.find((s)=>s.best===mbti)
+    setResultData(result);
+  },[mbti])
 
   return(
     <Wrapper>
@@ -13,9 +21,9 @@ const Result = () => {
         <Contents>
         <Title>결과 보기</Title>
         <LogoImage>
-          <img src={ResultData[0].image} alt='mbti' width={350} />
+          <img src={resultData.image} alt='mbti' width={350} />
         </LogoImage>
-        <Desc>당신과 제일 잘 맞는 MBTI는 {ResultData[0].name}입니다.</Desc>
+        <Desc>당신과 제일 잘 맞는 MBTI는 {resultData.name}입니다.</Desc>
         <Button style={{fontFamily: "DNFBitBitTTF"}} onClick={()=>navigate("/")}>
           테스트 다시하기
         </Button>
